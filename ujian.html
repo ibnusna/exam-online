@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistem Desain UI Ujian</title>
+  <link rel= "stylesheet" href="assets/css/ujian.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
+<body>
+  <div class="exam-container">
+    <!-- Konten Soal -->
+    <div class="exam-content">
+      <div class="timer-badge">
+        <i class="far fa-clock timer-icon"></i>
+        <span>Sisa waktu : 0 : 35 : 24</span>
+      </div>
+      
+      <div class="question-text">
+        39. Informasi dasar yang mendeskripsikan tabel yang terdiri atas nama tabel dan sekumpulan pasangan kolom domain:
+      </div>
+      
+      <div class="question-options">
+        <div class="option-item">A. Relational Keys</div>
+        <div class="option-item">B. Relation Skema</div>
+        <div class="option-item">C. Relational Database Schema</div>
+        <div class="option-item">D. Perancangan Basis Data</div>
+        <div class="option-item">E. Basis Data Relational</div>
+      </div>
+      
+      <hr class="question-divider">
+    </div>
+    
+    <!-- Sidebar Navigasi -->
+    <div class="exam-sidebar">
+      <h3 class="nav-title">Nomor Soal Pilihan Ganda</h3>
+      
+      <div class="question-grid">
+        <button class="btn-question btn-question--answered">01</button>
+        <button class="btn-question btn-question--answered">02</button>
+        <button class="btn-question btn-question--answered">03</button>
+        <button class="btn-question btn-question--answered">04</button>
+        <button class="btn-question btn-question--answered">05</button>
+        <button class="btn-question btn-question--answered">06</button>
+        
+        <button class="btn-question btn-question--answered">07</button>
+        <button class="btn-question btn-question--unanswered">08</button>
+        <button class="btn-question btn-question--unanswered">09</button>
+        <button class="btn-question btn-question--answered">10</button>
+        <button class="btn-question btn-question--unanswered">11</button>
+        <button class="btn-question btn-question--answered">12</button>
+        
+        <button class="btn-question btn-question--answered">13</button>
+        <button class="btn-question btn-question--answered">14</button>
+        <button class="btn-question btn-question--answered">15</button>
+        <button class="btn-question btn-question--answered">16</button>
+        <button class="btn-question btn-question--answered">17</button>
+        <button class="btn-question btn-question--answered">18</button>
+        
+        <button class="btn-question btn-question--answered">19</button>
+        <button class="btn-question btn-question--answered">20</button>
+        <button class="btn-question btn-question--answered">21</button>
+        <button class="btn-question btn-question--answered">22</button>
+        <button class="btn-question btn-question--answered">23</button>
+        <button class="btn-question btn-question--answered">24</button>
+        
+        <button class="btn-question btn-question--answered">25</button>
+        <button class="btn-question btn-question--answered">26</button>
+        <button class="btn-question btn-question--unanswered">27</button>
+        <button class="btn-question btn-question--answered">28</button>
+        <button class="btn-question btn-question--answered">29</button>
+        <button class="btn-question btn-question--unanswered">30</button>
+        
+        <button class="btn-question btn-question--answered">31</button>
+        <button class="btn-question btn-question--unanswered">32</button>
+        <button class="btn-question btn-question--answered">33</button>
+        <button class="btn-question btn-question--answered">34</button>
+        <button class="btn-question btn-question--answered">35</button>
+        <button class="btn-question btn-question--answered">36</button>
+        
+        <button class="btn-question btn-question--answered">37</button>
+        <button class="btn-question btn-question--answered">38</button>
+        <button class="btn-question btn-question--current">39</button>
+        <button class="btn-question btn-question--answered">40</button>
+        <button class="btn-question btn-question--answered">41</button>
+        <button class="btn-question btn-question--answered">42</button>
+        
+        <button class="btn-question btn-question--answered">43</button>
+        <button class="btn-question btn-question--answered">44</button>
+       xxbutton class="btn-question btn-question--answered">45</button>
+        <button class="btn-question btn-question--answered">46</button>
+        <button class="btn-question btn-question--answered">47</button>
+        <button class="btn-question btn-question--answered">48</button>
+        
+        <button class="btn-question btn-question--answered">49</button>
+        <button class="btn-question btn-question--answered">50</button>
+      </div>
+      
+      <h3 class="essay-title">Nomor Soal Essay</h3>
+    </div>
+  </div>
+
+  <script>
+    // JavaScript untuk interaktivitas button
+    document.querySelectorAll('.btn-question').forEach(button => {
+      button.addEventListener('click', function() {
+        // Remove current state dari semua button
+        document.querySelectorAll('.btn-question').forEach(btn => {
+          btn.classList.remove('btn-question--current');
+        });
+        
+        // Add current state ke button yang diklik
+        if (!this.classList.contains('btn-question--answered')) {
+          this.classList.add('btn-question--current');
+        }
+      });
+    });
+
+    // Hover effect untuk opsi jawaban
+    document.querySelectorAll('.option-item').forEach(option => {
+      option.addEventListener('click', function() {
+        // Reset semua opsi
+        document.querySelectorAll('.option-item').forEach(opt => {
+          opt.style.backgroundColor = '';
+          opt.style.color = '';
+        });
+        
+        // Highlight opsi yang dipilih
+        this.style.backgroundColor = 'rgba(21, 128, 61, 0.1)';
+        this.style.color = '#15803d';
+      });
+    });
+  </script>
+</body>
+</html>

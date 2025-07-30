@@ -1,0 +1,409 @@
+/* ===== VARIABEL ROOT SISTEM DESAIN ===== */
+:root {
+  /* Warna Utama */
+  --primary-bg: #000000;
+  --content-bg: #ffffff;
+  --success-primary: #15803d;
+  --success-dark: #1f7a4a;
+  --danger-primary: #dc2626;
+  --neutral-light: #d1d5db;
+  --neutral-medium: #6b7280;
+  --neutral-dark: #111827;
+  --border-color: #d1d5db;
+
+  /* Typography */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-white: #ffffff;
+  --font-xs: 0.75rem;
+  --font-sm: 0.875rem;
+  --font-base: 1rem;
+  --font-weight-normal: 400;
+  --font-weight-semibold: 600;
+
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+
+  /* Layout */
+  --container-max-width: 112rem;
+  --content-radius: 0.5rem;
+  --button-radius: 9999px;
+  --sidebar-width: 18rem;
+  --sidebar-width-mobile: 100%;
+
+  /* Button Dimensions */
+  --btn-question-size: 1.75rem;
+  --btn-question-font: 9px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-base: all 0.15s ease-in-out;
+  --transition-colors: color 0.15s ease-in-out,
+    background-color 0.15s ease-in-out;
+}
+
+/* ===== RESET & BASE STYLES ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--primary-bg);
+  color: var(--text-primary);
+  padding: var(--spacing-lg);
+  line-height: 1.5;
+}
+
+/* ===== LAYOUT COMPONENTS ===== */
+.exam-container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 1024px) {
+  .exam-container {
+    flex-direction: row;
+  }
+}
+
+.exam-content {
+  background-color: var(--content-bg);
+  border-radius: var(--content-radius);
+  padding: var(--spacing-lg);
+  flex: 1;
+  box-shadow: var(--shadow-sm);
+}
+
+.exam-sidebar {
+  background-color: var(--content-bg);
+  border-radius: var(--content-radius);
+  padding: var(--spacing-lg);
+  width: 100%;
+  max-width: var(--sidebar-width);
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== TIMER COMPONENT ===== */
+.timer-badge {
+  background-color: var(--success-primary);
+  color: var(--text-white);
+  border-radius: var(--content-radius);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-sm);
+}
+
+.timer-icon {
+  font-size: var(--font-sm);
+}
+
+/* ===== QUESTION COMPONENTS ===== */
+.question-text {
+  font-size: var(--font-xs);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-sm);
+  line-height: 1.4;
+}
+
+.question-options {
+  margin-bottom: var(--spacing-md);
+}
+
+.option-item {
+  font-size: var(--font-xs);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+  padding: var(--spacing-xs) 0;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.option-item:hover {
+  color: var(--success-primary);
+  background-color: rgba(21, 128, 61, 0.05);
+  padding-left: var(--spacing-sm);
+  border-radius: var(--spacing-xs);
+}
+
+.question-divider {
+  border: none;
+  border-top: 1px solid var(--border-color);
+  margin: var(--spacing-md) 0;
+}
+
+/* ===== NAVIGATION COMPONENTS ===== */
+.nav-title {
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.question-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-lg);
+}
+
+.essay-title {
+  font-size: var(--font-xs);
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  text-align: center;
+  margin-top: var(--spacing-md);
+}
+
+/* ===== BUTTON SYSTEM ===== */
+.btn-question {
+  width: var(--btn-question-size);
+  height: var(--btn-question-size);
+  border-radius: var(--button-radius);
+  border: none;
+  font-size: var(--btn-question-font);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-question:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-question:active {
+  transform: translateY(0);
+}
+
+/* Button States */
+.btn-question--answered {
+  background-color: var(--success-primary);
+  color: var(--text-white);
+}
+
+.btn-question--answered:hover {
+  background-color: var(--success-dark);
+}
+
+.btn-question--unanswered {
+  background-color: var(--neutral-light);
+  color: var(--neutral-medium);
+}
+
+.btn-question--unanswered:hover {
+  background-color: var(--neutral-medium);
+  color: var(--text-white);
+}
+
+.btn-question--current {
+  background-color: var(--danger-primary);
+  color: var(--text-white);
+  animation: pulse 2s infinite;
+}
+
+.btn-question--current:hover {
+  background-color: #b91c1c;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* ===== RESPONSIVE UTILITIES ===== */
+@media (max-width: 1023px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
+  .exam-container {
+    gap: var(--spacing-md);
+  }
+
+  .exam-content,
+  .exam-sidebar {
+    padding: var(--spacing-md);
+  }
+
+  .question-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: var(--spacing-sm);
+  }
+
+  .btn-question {
+    width: 2rem;
+    height: 2rem;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 640px) {
+  .question-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .timer-badge {
+    font-size: var(--font-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+}
+
+/* ===== ACCESSIBILITY ===== */
+.btn-question:focus {
+  outline: 2px solid var(--success-primary);
+  outline-offset: 2px;
+}
+
+.option-item:hover {
+  outline: 1px solid transparent;
+}
+
+/* ===== UTILITY CLASSES ===== */
+.text-center {
+  text-align: center;
+}
+.mb-sm {
+  margin-bottom: var(--spacing-sm);
+}
+.mb-md {
+  margin-bottom: var(--spacing-md);
+}
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+.p-sm {
+  padding: var(--spacing-sm);
+}
+.p-md {
+  padding: var(--spacing-md);
+}
+.rounded {
+  border-radius: var(--content-radius);
+}
+.shadow {
+  box-shadow: var(--shadow-sm);
+}
+
+body,
+html {
+  overflow: hidden;
+}
+.exam-content {
+  user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+}
+
+/* === PERUBAHAN UTAMA ADA DI SINI === */
+/* Gaya untuk jawaban yang sudah dipilih secara permanen (biru) */
+.option-item.selected {
+  background-color: #3b82f6; /* Warna biru */
+  color: white;
+}
+/* Gaya untuk animasi jawaban tersimpan (hijau) */
+.option-item.loading {
+  background-color: #28a754 !important; /* Warna hijau, !important untuk menimpa gaya .selected */
+  color: white !important;
+  pointer-events: none;
+}
+/* === AKHIR DARI PERUBAHAN UTAMA === */
+
+.option-item.loading .option-text {
+  display: none;
+}
+.option-item .loading-text {
+  display: none;
+}
+.option-item.loading .loading-text {
+  display: inline;
+}
+#start-exam-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+#start-exam-button {
+  padding: 20px 40px;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  background-color: #1a73e8;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-finish-exam {
+  width: 100%;
+  padding: 12px 20px;
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background: linear-gradient(45deg, #28a745, #218838); /* Gradien hijau */
+  border: none;
+  border-radius: 8px; /* Sudut yang sedikit membulat */
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4); /* Bayangan lembut */
+  transition: all 0.3s ease;
+  animation: pulse-animation 2s infinite; /* Menjalankan animasi pulse */
+}
+
+.btn-finish-exam:hover {
+  transform: translateY(-2px); /* Efek sedikit terangkat saat di-hover */
+  box-shadow: 0 6px 20px rgba(40, 167, 69, 0.6);
+  animation-play-state: paused; /* Hentikan animasi pulse saat di-hover */
+}
+
+.btn-finish-exam:active {
+  transform: translateY(1px); /* Efek ditekan */
+  box-shadow: 0 2px 10px rgba(40, 167, 69, 0.4);
+}
+
+/* Definisi animasi pulse */
+@keyframes pulse-animation {
+  0% {
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 25px rgba(40, 167, 69, 0.7);
+  }
+  100% {
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.4);
+  }
+}

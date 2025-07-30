@@ -1,0 +1,1061 @@
+/* Enhanced Glass 3D Design Theme untuk Hasil Ujian - Versi Perbaikan */
+
+/* Reset dan Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: url("assets/img/maomao-xiaolan-3840x2160-21937.jpg") no-repeat
+    center center fixed;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  /* Pastikan kualitas gambar tetap tinggi */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  image-rendering: high-quality;
+}
+
+/* Overlay untuk meningkatkan kontras - blur minimal */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(0.5px); /* Blur sangat minimal */
+  -webkit-backdrop-filter: blur(0.5px);
+  z-index: -1;
+}
+
+/* Glass Effect Base */
+.glass-container {
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+}
+
+/* Navigation Styles */
+.no-print {
+  background: rgba(255, 255, 255, 0.22) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.no-print .max-w-6xl {
+  position: relative;
+}
+
+/* Button Styles - Enhanced */
+.no-print button,
+.no-print a {
+  background: rgba(255, 255, 255, 0.28) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 16px;
+  color: #1e40af !important;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 12px 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.no-print button::before,
+.no-print a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.5),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.no-print button:hover::before,
+.no-print a:hover::before {
+  left: 100%;
+}
+
+.no-print button:hover,
+.no-print a:hover {
+  background: rgba(255, 255, 255, 0.4) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Tab Styles - Enhanced */
+.tab-active {
+  background: rgba(37, 99, 235, 0.35) !important;
+  color: #1e40af !important;
+  border: 1px solid rgba(37, 99, 235, 0.45);
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  font-weight: 700;
+}
+
+.tab-inactive {
+  background: rgba(255, 255, 255, 0.18) !important;
+  color: #64748b !important;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 500;
+}
+
+/* Main Container */
+.max-w-6xl {
+  position: relative;
+  z-index: 1;
+}
+
+/* Card Styles dengan Glass Effect - Enhanced */
+.bg-white {
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(30px) !important;
+  -webkit-backdrop-filter: blur(30px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 28px !important;
+  box-shadow: 0 16px 50px rgba(0, 0, 0, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.15) !important;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 32px !important; /* Tambahan jarak */
+}
+
+.bg-white::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    rgba(37, 99, 235, 0.4),
+    rgba(167, 243, 208, 0.4),
+    rgba(37, 99, 235, 0.4)
+  );
+  opacity: 0;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-white:hover::before {
+  opacity: 1;
+}
+
+.bg-white:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 75px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+/* Header Styles - Enhanced */
+h1,
+h2,
+h3 {
+  color: #1e293b;
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.12);
+  position: relative;
+  font-weight: 800;
+}
+
+h1 {
+  background: linear-gradient(135deg, #1e40af, #3b82f6, #60a5fa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 2.75rem;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+/* Perbaikan untuk Enhanced "Bukti Download" Button - Override inline styles */
+#pemicuDokumen {
+  background-color: #f0f8ff !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 2px dashed #007bff !important;
+  border-radius: 12px !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  overflow: hidden !important;
+  margin: 20px auto !important; /* Jarak yang lebih kecil */
+  padding: 12px 20px !important; /* Padding yang lebih kecil dan proporsional */
+  max-width: 250px !important; /* Lebar yang lebih kecil dan proporsional */
+  min-height: auto !important; /* Auto height agar mengikuti konten */
+  display: block !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  color: #007bff !important;
+  width: auto !important; /* Override any width */
+  height: auto !important; /* Override any height */
+}
+
+#pemicuDokumen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 123, 255, 0.25),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pemicuDokumen:hover::before {
+  left: 100%;
+}
+
+#pemicuDokumen:hover {
+  background-color: #e6f3ff !important;
+  border-color: #0056b3 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Perbaikan untuk Download Button Text */
+#pemicuDokumen .text-center,
+#pemicuDokumen strong {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #007bff;
+  text-shadow: none;
+  margin: 0;
+  padding: 0;
+  display: inline;
+  line-height: 1.4;
+}
+
+/* Perbaikan Modal Container */
+#modalDokumen {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Perbaikan Modal Content Box - Override inline styles */
+#modalDokumen > div {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(35px) !important;
+  -webkit-backdrop-filter: blur(35px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45) !important;
+  margin: 3% auto !important;
+  padding: 25px !important;
+  width: 90% !important;
+  max-width: 700px !important;
+  position: relative !important;
+  max-height: 90vh !important;
+  overflow-y: auto !important;
+}
+
+/* Perbaikan Modal Header */
+#modalDokumen h3 {
+  margin-top: 0;
+  margin-bottom: 16px;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1e40af;
+  padding-top: 8px;
+}
+
+#modalDokumen hr {
+  margin: 16px 0 20px 0;
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+  border-radius: 1px;
+}
+
+/* Perbaikan Button dalam Modal - Override inline styles */
+#tombolDownloadPdf {
+  background-color: #d32f2f !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 4px 15px rgba(211, 47, 47, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  font-weight: 600 !important;
+  padding: 8px 12px !important;
+  position: absolute !important;
+  top: 15px !important;
+  left: 25px !important;
+  cursor: pointer !important;
+  color: white !important;
+  font-size: 14px !important;
+}
+
+#tombolDownloadPdf:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 6px 20px rgba(211, 47, 47, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  background-color: #b71c1c !important;
+}
+
+/* Perbaikan Close Button - Override inline styles */
+#tutupModal {
+  color: #555 !important;
+  position: absolute !important;
+  top: 10px !important;
+  right: 25px !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  cursor: pointer !important;
+  background: rgba(255, 255, 255, 0.25) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border-radius: 50% !important;
+  width: 35px !important;
+  height: 35px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+#tutupModal:hover {
+  background: rgba(239, 68, 68, 0.35) !important;
+  color: #dc2626 !important;
+  transform: rotate(90deg) scale(1.05) !important;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.35) !important;
+}
+
+/* Content Area */
+#kontenUntukPdf {
+  margin-top: 8px;
+  padding: 0;
+}
+
+/* Responsive untuk Mobile - Override inline styles */
+@media (max-width: 768px) {
+  #pemicuDokumen {
+    margin: 16px auto !important;
+    padding: 10px 18px !important;
+    max-width: 220px !important;
+    min-height: auto !important;
+  }
+
+  #pemicuDokumen strong {
+    font-size: 0.95rem !important;
+  }
+
+  #modalDokumen > div {
+    margin: 2% auto !important;
+    padding: 20px !important;
+    width: 95% !important;
+    max-height: 92vh !important;
+  }
+
+  #tombolDownloadPdf {
+    position: static !important;
+    margin-bottom: 12px !important;
+    width: 100% !important;
+    padding: 10px !important;
+    font-size: 13px !important;
+  }
+
+  #tutupModal {
+    width: 32px !important;
+    height: 32px !important;
+    font-size: 24px !important;
+    top: 8px !important;
+    right: 20px !important;
+  }
+
+  #modalDokumen h3 {
+    font-size: 1.2rem !important;
+    margin-top: 8px !important;
+  }
+}
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}
+@media (max-width: 480px) {
+  #pemicuDokumen {
+    margin: 14px auto !important;
+    padding: 8px 16px !important;
+    max-width: 200px !important;
+    min-height: auto !important;
+  }
+
+  #pemicuDokumen strong {
+    font-size: 0.9rem !important;
+  }
+
+  #modalDokumen > div {
+    width: 98% !important;
+    padding: 16px !important;
+    border-radius: 10px !important;
+  }
+}
+
+/* Score Display - Enhanced */
+.text-6xl {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8, #1e40af);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 6px 12px rgba(37, 99, 235, 0.35);
+  position: relative;
+  font-weight: 900;
+}
+
+.text-6xl::after {
+  content: "";
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 5px;
+  background: linear-gradient(90deg, #2563eb, #3b82f6, #60a5fa);
+  border-radius: 3px;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.45);
+}
+
+/* Grade Badge - Enhanced */
+.bg-green-600,
+.bg-blue-600,
+.bg-yellow-500,
+.bg-red-600 {
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 12px;
+}
+
+.bg-green-600::before,
+.bg-blue-600::before,
+.bg-yellow-500::before,
+.bg-red-600::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.25) 50%,
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bg-green-600:hover::before,
+.bg-blue-600:hover::before,
+.bg-yellow-500:hover::before,
+.bg-red-600:hover::before {
+  transform: translateX(100%);
+}
+
+/* Colored Backgrounds - Enhanced */
+.bg-green-50 {
+  background: rgba(34, 197, 94, 0.12) !important;
+  border-left: 5px solid #22c55e !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.bg-red-50 {
+  background: rgba(239, 68, 68, 0.12) !important;
+  border-left: 5px solid #ef4444 !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.bg-blue-50 {
+  background: rgba(59, 130, 246, 0.12) !important;
+  border-left: 5px solid #3b82f6 !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.bg-yellow-50 {
+  background: rgba(234, 179, 8, 0.12) !important;
+  border-left: 5px solid #eab308 !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.bg-orange-50 {
+  background: rgba(249, 115, 22, 0.12) !important;
+  border-left: 5px solid #f97316 !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.bg-gray-50 {
+  background: rgba(148, 163, 184, 0.12) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(148, 163, 184, 0.25);
+  border-radius: 16px;
+  margin: 16px 0;
+}
+
+/* Modal Styles - Enhanced */
+#modalDokumen {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: rgba(0, 0, 0, 0.4);
+}
+
+#modalDokumen > div {
+  background: rgba(255, 255, 255, 0.3) !important;
+  backdrop-filter: blur(35px) !important;
+  -webkit-backdrop-filter: blur(35px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 24px;
+  box-shadow: 0 35px 100px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Enhanced "Bukti Download" Button dengan jarak yang cukup */
+#pemicuDokumen {
+  background: rgba(0, 123, 255, 0.15) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 3px dashed rgba(0, 123, 255, 0.4) !important;
+  border-radius: 20px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  margin: 32px 0; /* Jarak yang cukup */
+  padding: 24px;
+  min-height: 120px;
+}
+
+#pemicuDokumen::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0, 123, 255, 0.25),
+    transparent
+  );
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#pemicuDokumen:hover::before {
+  left: 100%;
+}
+
+#pemicuDokumen:hover {
+  background: rgba(0, 123, 255, 0.25) !important;
+  border-color: rgba(0, 123, 255, 0.6) !important;
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px rgba(0, 123, 255, 0.25);
+}
+
+/* Enhanced Download Button Text */
+#pemicuDokumen .text-center {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #1e40af;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Button dalam Modal - Enhanced */
+#tombolDownloadPdf {
+  background: linear-gradient(135deg, #dc2626, #b91c1c, #991b1b) !important;
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25) !important;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(220, 38, 38, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 700;
+  padding: 12px 24px;
+}
+
+#tombolDownloadPdf:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(220, 38, 38, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+#tutupModal {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+#tutupModal:hover {
+  background: rgba(239, 68, 68, 0.35);
+  color: #dc2626;
+  transform: rotate(90deg) scale(1.1);
+  box-shadow: 0 8px 25px rgba(239, 68, 68, 0.35);
+}
+
+/* Text Colors - Enhanced */
+.text-gray-600 {
+  color: #475569 !important;
+  font-weight: 500;
+}
+
+.text-gray-700 {
+  color: #334155 !important;
+  font-weight: 600;
+}
+
+.text-gray-800 {
+  color: #1e293b !important;
+  font-weight: 700;
+}
+
+.text-blue-600 {
+  color: #2563eb !important;
+  font-weight: 600;
+}
+
+.text-blue-700 {
+  color: #1d4ed8 !important;
+  font-weight: 700;
+}
+
+.text-blue-800 {
+  color: #1e40af !important;
+  font-weight: 800;
+}
+
+.text-green-600 {
+  color: #16a34a !important;
+  font-weight: 600;
+}
+
+.text-green-700 {
+  color: #15803d !important;
+  font-weight: 700;
+}
+
+.text-green-800 {
+  color: #166534 !important;
+  font-weight: 800;
+}
+
+.text-red-600 {
+  color: #dc2626 !important;
+  font-weight: 600;
+}
+
+.text-red-700 {
+  color: #b91c1c !important;
+  font-weight: 700;
+}
+
+.text-red-800 {
+  color: #991b1b !important;
+  font-weight: 800;
+}
+
+.text-yellow-700 {
+  color: #a16207 !important;
+  font-weight: 700;
+}
+
+.text-orange-700 {
+  color: #c2410c !important;
+  font-weight: 700;
+}
+
+/* Scroll to Top Button - Enhanced */
+#scrollTopBtn {
+  background: rgba(37, 99, 235, 0.35) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
+  border-radius: 50%;
+  box-shadow: 0 12px 35px rgba(37, 99, 235, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35) !important;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 56px;
+  height: 56px;
+}
+
+#scrollTopBtn:hover {
+  background: rgba(37, 99, 235, 0.45) !important;
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 16px 45px rgba(37, 99, 235, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+/* Chart Container Enhancement */
+canvas {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Enhanced Animation Classes */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.8s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Print Styles - Enhanced */
+@media print {
+  body {
+    background: white !important;
+    font-size: 12pt;
+  }
+
+  body::before {
+    display: none;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .bg-white {
+    background: white !important;
+    border: 2px solid #e2e8f0 !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    page-break-inside: avoid;
+  }
+
+  #scrollTopBtn {
+    display: none !important;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: #1e293b !important;
+    page-break-after: avoid;
+  }
+
+  .bukti-ujian-title {
+    color: #1e40af !important;
+    page-break-after: avoid;
+  }
+}
+
+/* Enhanced Focus States untuk Accessibility */
+button:focus,
+a:focus,
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.35), 0 12px 35px rgba(0, 0, 0, 0.18);
+  border-color: rgba(37, 99, 235, 0.5);
+}
+
+/* Loading State - Enhanced */
+.loading {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.loading::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  margin: -12px 0 0 -12px;
+  border: 3px solid rgba(37, 99, 235, 0.2);
+  border-top: 3px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Floating Elements Effect - Enhanced */
+.floating {
+  animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  33% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+  66% {
+    transform: translateY(-4px) rotate(-1deg);
+  }
+}
+
+/* Custom Scrollbar - Enhanced */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  margin: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.4);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.6);
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+/* Spacing Utilities - Enhanced */
+.spacing-section {
+  margin: 48px 0 !important;
+  padding: 32px !important;
+}
+
+.spacing-item {
+  margin: 24px 0 !important;
+}
+
+.spacing-tight {
+  margin: 16px 0 !important;
+}
+
+.spacing-loose {
+  margin: 64px 0 !important;
+}
+
+/* Enhanced Typography */
+.heading-primary {
+  font-size: 3rem;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+}
+
+.heading-secondary {
+  font-size: 2.25rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.heading-tertiary {
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+  .bukti-ujian-title {
+    font-size: 2rem;
+  }
+
+  .heading-primary {
+    font-size: 2.25rem;
+  }
+
+  .heading-secondary {
+    font-size: 1.875rem;
+  }
+
+  #pemicuDokumen {
+    margin: 24px 0;
+    padding: 20px;
+    min-height: 100px;
+  }
+
+  .bg-white {
+    margin-bottom: 24px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bukti-ujian-title {
+    font-size: 1.75rem;
+  }
+
+  .text-6xl {
+    font-size: 3rem;
+  }
+
+  #pemicuDokumen {
+    margin: 20px 0;
+    padding: 16px;
+    min-height: 80px;
+  }
+}
